@@ -1,0 +1,38 @@
+all:
+  hosts:
+    fr1_compute1_k8s_master1:
+      ansible_host: ar-fr1-exchange-kube-master-1
+      ip: 172.20.10.217
+      access_ip: 172.20.10.217
+    fr1_compute1_k8s_master2:
+      ansible_host: ar-fr1-exchange-kube-master-2
+      ip: 172.20.10.240
+      access_ip: 172.20.10.240
+    fr1_compute1_k8s_master3:
+      ansible_host: ar-fr1-exchange-kube-master-3
+      ip: 172.20.10.39
+      access_ip: 172.20.10.39
+    fr1_compute1_k8s_worker1:
+        ansible_host: ar-fr1-exchange-kube-worker-1
+        ip: 172.20.10.126
+        access_ip: 172.20.10.126
+  children:
+    kube_control_plane:
+      hosts:
+        fr1_compute1_k8s_master1:
+        fr1_compute1_k8s_master2:
+        fr1_compute1_k8s_master3:
+    kube_node:
+      hosts:
+        fr1_compute1_k8s_worker1:
+    etcd:
+      hosts:
+        fr1_compute1_k8s_master1:
+        fr1_compute1_k8s_master2:
+        fr1_compute1_k8s_master3:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
