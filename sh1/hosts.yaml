@@ -43,6 +43,11 @@ all:
         kube_node:
     calico_rr:
       hosts: {}
-    haproxy:
+    kube_lb:
       hosts:
         sh1-compute1-edge-proxy1:
+      vars:
+        ingress_controller_http_nodeport: 31080
+        ingress_controller_https_nodeport: 31443
+        apt_proxy_server: http://msf.alefbyte.com:58889
+        apt_proxy_port: 58889
