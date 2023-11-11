@@ -51,5 +51,5 @@ all:
       vars:
         ingress_controller_http_nodeport: 31080
         ingress_controller_https_nodeport: 31443
-        apt_proxy_server: http://msf.alefbyte.com:58889
+        apt_proxy_server: msf.alefbyte.com
         apt_proxy_port: 58889
