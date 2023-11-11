@@ -67,7 +67,7 @@ credentials_dir: "{{ inventory_dir }}/credentials"
 
 # Choose network plugin (cilium, calico, kube-ovn, weave or flannel. Use cni for generic cni plugin)
 # Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
-kube_network_plugin: cilium
+kube_network_plugin: calico
 
 # Setting multi_networking to true will install Multus: https://github.com/k8snetworkplumbingwg/multus-cni
 kube_network_plugin_multus: false
@@ -157,7 +157,7 @@ kube_encrypt_secret_data: true
 
 # DNS configuration.
 # Kubernetes cluster name, also will be used as DNS domain
-cluster_name: k8s.ba1.exchange.neor.space
+cluster_name: k8s.sh1.exchange.neor.space
 # Subdomains of DNS domain to be resolved via /etc/resolv.conf for hostnet pods
 ndots: 2
 # dns_timeout: 2
