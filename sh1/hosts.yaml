@@ -1,0 +1,48 @@
+all:
+  hosts:
+    sh1-compute1-edge-proxy1:
+      ansible_host: localhost
+    sh1-compute1-k8s-master1:
+      ansible_host: ar-sh1-exchange-kube-master-1
+      ip: 192.168.10.39
+      access_ip: 192.168.10.39
+    sh1-compute1-k8s-master2:
+      ansible_host: ar-sh1-exchange-kube-master-2
+      ip: 192.168.10.228
+      access_ip: 192.168.10.228
+    sh1-compute1-k8s-master3:
+      ansible_host: ar-sh1-exchange-kube-master-3
+      ip: 192.168.10.109
+      access_ip: 192.168.10.109
+    sh1-compute1-k8s-worker1:
+      ansible_host: ar-sh1-exchange-kube-worker-1
+      ip: 192.168.10.94
+      access_ip: 192.168.10.94
+    sh1-compute1-k8s-worker2:
+      ansible_host: ar-sh1-exchange-kube-worker-2
+      ip: 192.168.10.64
+      access_ip: 192.168.10.64
+  children:
+    kube_control_plane:
+      hosts:
+        sh1-compute1-k8s-master1:
+        sh1-compute1-k8s-master2:
+        sh1-compute1-k8s-master3:
+    kube_node:
+      hosts:
+        sh1-compute1-k8s-worker1:
+        sh1-compute1-k8s-worker2:
+    etcd:
+      hosts:
+        sh1-compute1-k8s-master1:
+        sh1-compute1-k8s-master2:
+        sh1-compute1-k8s-master3:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
+    haproxy:
+      hosts:
+        sh1-compute1-edge-proxy1:
