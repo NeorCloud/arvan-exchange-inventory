@@ -2,6 +2,8 @@ all:
   hosts:
     sh1-compute1-edge-proxy1:
       ansible_host: localhost
+      ansible_connection: local
+      ansible_python_interpreter: "{{ansible_playbook_python}}"
     sh1-compute1-k8s-master1:
       ansible_host: ar-sh1-exchange-kube-master-1
       ip: 192.168.10.39
