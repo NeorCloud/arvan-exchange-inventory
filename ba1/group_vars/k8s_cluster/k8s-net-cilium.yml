@@ -102,7 +102,8 @@ cilium_encryption_enabled: true
 
 # Encryption method. Can be either ipsec or wireguard.
 # Only effective when `cilium_encryption_enabled` is set to true.
-# cilium_encryption_type: "ipsec"
+cilium_encryption_type: "ipsec"
+cilium_ipsec_key: "MyByZmM0MTA2KGdjbShhZXMpKSBiMzgyOGZkZGJmMDY1NDI1ODI1OTk2ZjI3MjBlZjdlZjIzMTA4ZTVlIDEyOAo="
 
 # Enable encryption for pure node to node traffic.
 # This option is only effective when `cilium_encryption_type` is set to `ipsec`.
@@ -154,7 +155,7 @@ cilium_enable_hubble_metrics: true
 ### Enable Hubble install
 cilium_hubble_install: true
 ### Enable auto generate certs if cilium_hubble_install: true
-# cilium_hubble_tls_generate: false
+cilium_hubble_tls_generate: true
 
 # IP address management mode for v1.9+.
 # https://docs.cilium.io/en/v1.9/concepts/networking/ipam/
@@ -188,7 +189,7 @@ cilium_hubble_install: true
 # cilium_operator_custom_args: []
 
 # Name of the cluster. Only relevant when building a mesh of clusters.
-# cilium_cluster_name: default
+cilium_cluster_name: ba1-compute1
 
 # Make Cilium take ownership over the `/etc/cni/net.d` directory on the node, renaming all non-Cilium CNI configurations to `*.cilium_bak`.
 # This ensures no Pods can be scheduled using other CNI plugins during Cilium agent downtime.
