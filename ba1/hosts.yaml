@@ -2,24 +2,36 @@ all:
   hosts:
     ba1-compute1-k8s-master1:
       ansible_host: ar-ba1-exchange-kube-master-1
-      ip: 172.20.10.101
-      access_ip: 172.20.10.101
+      ip: 192.168.20.107
+      access_ip: 192.168.20.107
     ba1-compute1-k8s-master2:
       ansible_host: ar-ba1-exchange-kube-master-2
-      ip: 172.20.10.102
-      access_ip: 172.20.10.102
+      ip: 192.168.20.238
+      access_ip: 192.168.20.238
     ba1-compute1-k8s-master3:
       ansible_host: ar-ba1-exchange-kube-master-3
-      ip: 172.20.10.103
-      access_ip: 172.20.10.103
+      ip: 192.168.20.145
+      access_ip: 192.168.20.145
     ba1-compute1-k8s-worker1:
       ansible_host: ar-ba1-exchange-kube-worker-1
-      ip: 172.20.10.151
-      access_ip: 172.20.10.151
+      ip: 192.168.20.51
+      access_ip: 192.168.20.51
     ba1-compute1-k8s-worker2:
       ansible_host: ar-ba1-exchange-kube-worker-2
-      ip: 172.20.10.152
-      access_ip: 172.20.10.152
+      ip: 192.168.20.239
+      access_ip: 192.168.20.239
+    ba1-compute1-k8s-worker3:
+      ansible_host: ar-ba1-exchange-kube-worker-3
+      ip: 192.168.20.36
+      access_ip: 192.168.20.36
+    ba1-compute1-k8s-worker4:
+      ansible_host: ar-ba1-exchange-kube-worker-4
+      ip: 192.168.20.229
+      access_ip: 192.168.20.229
+    ba1-compute1-k8s-worker5:
+      ansible_host: ar-ba1-exchange-kube-worker-5
+      ip: 192.168.20.150
+      access_ip: 192.168.20.150
   children:
     kube_control_plane:
       hosts:
@@ -30,6 +42,9 @@ all:
       hosts:
         ba1-compute1-k8s-worker1:
         ba1-compute1-k8s-worker2:
+        ba1-compute1-k8s-worker3:
+        ba1-compute1-k8s-worker4:
+        ba1-compute1-k8s-worker5:
     etcd:
       hosts:
         ba1-compute1-k8s-master1:
