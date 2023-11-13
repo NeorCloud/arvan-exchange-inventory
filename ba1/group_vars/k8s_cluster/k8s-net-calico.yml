@@ -93,7 +93,7 @@ calico_pool_blocksize: 26
 # calico_ipip_mode: 'Never'
 
 # set VXLAN encapsulation mode: "Always", "CrossSubnet", "Never"
-# calico_vxlan_mode: 'Always'
+calico_vxlan_mode: 'CrossSubnet'
 
 # set VXLAN port and VNI
 # calico_vxlan_vni: 4096
@@ -115,6 +115,12 @@ calico_pool_blocksize: 26
 
 # Choose the iptables insert mode for Calico: "Insert" or "Append".
 # calico_felix_chaininsertmode: Insert
+
+# Enable Prometheus Metrics endpoint for felix
+calico_felix_prometheusmetricsenabled: true
+calico_felix_prometheusmetricsport: 9091
+calico_felix_prometheusgometricsenabled: true
+calico_felix_prometheusprocessmetricsenabled: true
 
 # If you want use the default route interface when you use multiple interface with dynamique route (iproute2)
 # see https://docs.projectcalico.org/reference/node/configuration : FELIX_DEVICEROUTESOURCEADDRESS
