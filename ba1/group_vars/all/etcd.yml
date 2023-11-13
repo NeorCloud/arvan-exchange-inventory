@@ -15,4 +15,4 @@ container_manager: kubeadm
 # Set this to docker if you are using container_manager: docker
 etcd_deployment_type: kubeadm
 
-etcd_listen_metrics_urls: "http://127.0.0.1:2381,https://0.0.0.0:2382"
+etcd_listen_metrics_urls: "http://0.0.0.0:2382"
